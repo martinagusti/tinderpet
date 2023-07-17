@@ -15,22 +15,24 @@ const useUsers = () => {
     const loadUsers = async () => {
       try {
         setLoading(true);
-        const data = await getAllUsers();
 
-        const allMatchs = await getAllMatchs();
+        if (userTinder) {
+          const data = await getAllUsers();
+          const allMatchs = await getAllMatchs();
 
-        for (const user of data) {
-          const usuario = await alreadySeen(user.ID, userTinder.id);
+          for (const user of data) {
+            const usuario = await alreadySeen(user.ID, userTinder.id);
 
-          if (usuario.length > 0) {
-            user.alreadySeen = true;
-          } else {
-            user.alreadySeen = false;
+            if (usuario.length > 0) {
+              user.alreadySeen = true;
+            } else {
+              user.alreadySeen = false;
+            }
           }
-        }
 
-        setMatchs(allMatchs);
-        setUsuarios(data);
+          setMatchs(allMatchs);
+          setUsuarios(data);
+        }
       } catch (error) {
         console.log(error);
         setError(error.message);
