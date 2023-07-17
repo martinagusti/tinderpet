@@ -5,7 +5,7 @@ import "./App.css";
 import useUsers from "./hooks/useUsers";
 import Login from "./pages/Login";
 import { Route, Routes } from "react-router-dom";
-import Initial from "./pages/initial";
+
 import Home from "./pages/Home";
 import Matchs from "./pages/Matchs";
 import Chat from "./pages/Chat";
@@ -28,13 +28,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Initial />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/matchs"
           element={<Matchs matchs={matchs} setUserChat={setUserChat} />}
         />
-        <Route path="/home" element={<Home usuarios={usuarios} />} />
+        <Route path="/" element={<Home usuarios={usuarios} />} />
         <Route path="/chat" element={<Chat userChat={userChat} />} />
       </Routes>
     </>

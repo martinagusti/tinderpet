@@ -18,7 +18,7 @@ function Login() {
     try {
       const data = await login(dataUser.email, dataUser.password);
       localStorage.setItem("userTinder", JSON.stringify(data[1]));
-      navigateTo(`/home`);
+      navigateTo(`/`);
     } catch (error) {
       console.log(error);
     }

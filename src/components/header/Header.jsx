@@ -14,7 +14,7 @@ function Header() {
       <p>Nombre App</p>
       <nav>
         <ul className="header-ul">
-          <li onClick={() => navigateTo(`/home`)}>Home</li>
+          <li onClick={() => navigateTo(`/`)}>Home</li>
           <li onClick={() => navigateTo(`/matchs`)}>Mis Matchs</li>
           <li onClick={() => login()}>Login</li>
         </ul>
