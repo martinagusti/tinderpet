@@ -1,0 +1,48 @@
+.data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-userName {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.data-img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.data-bio {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.btn-action-next {
+  width: 90px;
+  border-radius: 5px;
+  background-color: rgb(63, 110, 220);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+}
+
+.btn-action-like {
+  width: 90px;
+  border-radius: 5px;
+  background-color: rgb(21, 232, 45);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+}
+
+.data-actions-container {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

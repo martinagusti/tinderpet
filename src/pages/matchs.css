@@ -1,0 +1,22 @@
+.matchs-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.match-person-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.matchs-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
