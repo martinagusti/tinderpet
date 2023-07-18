@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./login.css";
 import Header from "../components/header/Header";
 
-function Login() {
+function Login({ setUserLogged }) {
   const navigateTo = useNavigate();
   const {
     register,
@@ -18,6 +18,7 @@ function Login() {
     try {
       const data = await login(dataUser.email, dataUser.password);
       localStorage.setItem("userTinder", JSON.stringify(data[1]));
+      setUserLogged(JSON.stringify(data[1]));
       navigateTo(`/`);
     } catch (error) {
       console.log(error);

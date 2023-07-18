@@ -3,11 +3,11 @@ import Header from "../components/header/Header";
 
 import "./home.css";
 
-function Home({ usuarios }) {
+function Home({ usuarios, setMatchs, matchs }) {
   return (
     <div>
       <Header />
-      <Data usuarios={usuarios} />
+      <Data usuarios={usuarios} setMatchs={setMatchs} matchs={matchs} />
     </div>
   );
 }

@@ -10,12 +10,9 @@ import Home from "./pages/Home";
 import Matchs from "./pages/Matchs";
 import Chat from "./pages/Chat";
 
-import io from "socket.io-client";
-
-const socket = io("http://localhost:3000");
-
 function App() {
-  const { usuarios, loading, error, matchs } = useUsers();
+  const { usuarios, loading, error, matchs, setMatchs, setUserLogged } =
+    useUsers();
 
   const [userChat, setUserChat] = useState();
 
@@ -28,12 +25,20 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={<Login setUserLogged={setUserLogged} />}
+        />
         <Route
           path="/matchs"
           element={<Matchs matchs={matchs} setUserChat={setUserChat} />}
         />
-        <Route path="/" element={<Home usuarios={usuarios} />} />
+        <Route
+          path="/"
+          element={
+            <Home usuarios={usuarios} setMatchs={setMatchs} matchs={matchs} />
+          }
+        />
         <Route path="/chat" element={<Chat userChat={userChat} />} />
       </Routes>
     </>

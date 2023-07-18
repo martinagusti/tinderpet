@@ -8,10 +8,10 @@ const useUsers = () => {
   const [matchs, setMatchs] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
-  const userTinder = JSON.parse(localStorage.getItem("userTinder"));
+  const [userLogged, setUserLogged] = useState();
 
   useEffect(() => {
+    const userTinder = JSON.parse(localStorage.getItem("userTinder"));
     const loadUsers = async () => {
       try {
         setLoading(true);
@@ -41,13 +41,15 @@ const useUsers = () => {
       }
     };
     loadUsers();
-  }, []);
+  }, [userLogged, matchs]);
 
   return {
     usuarios,
     loading,
     error,
     matchs,
+    userLogged,
+    setUserLogged,
   };
 };
 

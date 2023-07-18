@@ -5,10 +5,10 @@ import { alreadySeen, isMatch } from "../services/likeServices";
 import "./data.css";
 import { insertNewMatch } from "../services/matchServices";
 
-function Data({ usuarios }) {
+function Data({ usuarios, setMatchs, matchs }) {
   const userTinder = JSON.parse(localStorage.getItem("userTinder"));
   const [position, setPosition] = useState(0);
-  const [match, setMatch] = useState();
+  const [match, setMatchNotification] = useState();
 
   usuarios = usuarios.filter((user) => {
     return user.alreadySeen === false;
@@ -28,14 +28,15 @@ function Data({ usuarios }) {
     const matched = await isMatch(usuarios[position].ID);
 
     if (matched.length === 1) {
-      setMatch(true);
+      setMatchNotification(true);
       await insertNewMatch(usuarios[position].ID);
+      setMatchs([...matchs, matched]);
       setTimeout(() => {
         setPosition(position + 1);
-        setMatch(false);
+        setMatchNotification(false);
       }, 2000);
     } else {
-      setMatch(false);
+      setMatchNotification(false);
       setPosition(position + 1);
     }
   };

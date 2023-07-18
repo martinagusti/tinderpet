@@ -10,6 +10,8 @@ function Matchs({ matchs, setUserChat }) {
     setUserChat(id);
   };
 
+  console.log(matchs);
+
   return (
     <>
       <Header />
